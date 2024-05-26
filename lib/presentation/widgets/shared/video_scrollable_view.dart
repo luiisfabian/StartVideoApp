@@ -1,5 +1,7 @@
 import 'package:app_video_reproducer/domain/entities/video_post.dart';
+import 'package:app_video_reproducer/presentation/widgets/video/fullscreen_player.dart';
 import 'package:app_video_reproducer/presentation/widgets/video_player.dart/video_bottons.dart';
+import 'package:app_video_reproducer/shared/data/local_video_post.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -17,10 +19,14 @@ class VideoScrollableView extends StatelessWidget {
 
         return Stack(
           children: [
-            // video p´later + gradiente
-
+            // video player + gradiente
+             SizedBox.expand(
+                child: FullScreenPlayer(
+              name: videoPost.name,
+              videoUrl: videoPost.videoUrl, 
+            )),
             //botones
-            
+
             Positioned(
                 bottom: 40,
                 right: 20,
@@ -31,8 +37,7 @@ class VideoScrollableView extends StatelessWidget {
         );
       },
       scrollDirection: Axis.vertical,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
     );
   }
 }
-
