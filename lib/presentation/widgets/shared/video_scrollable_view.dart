@@ -37,7 +37,7 @@ class VideoScrollableView extends StatelessWidget {
         );
       },
       scrollDirection: Axis.vertical,
-      physics: const BouncingScrollPhysics(),
+      physics: BouncingScrollPhysics(),
     );
   }
 }

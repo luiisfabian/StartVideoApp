@@ -17,6 +17,7 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
 
   @override
   void initState() {
+    print(widget.videoUrl);
     // TODO: implement initState
     controller = VideoPlayerController.asset(widget.videoUrl)
       ..setVolume(0)
@@ -47,14 +48,14 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
           return GestureDetector(
             onTap: () {
               setState(() {
-            // If the video is playing, pause it.
-            if (controller.value.isPlaying) {
-              controller.pause();
-            } else {
-              // If the video is paused, play it.
-              controller.play();
-            }
-          });
+                // If the video is playing, pause it.
+                if (controller.value.isPlaying) {
+                  controller.pause();
+                } else {
+                  // If the video is paused, play it.
+                  controller.play();
+                }
+              });
             },
             child: AspectRatio(
                 aspectRatio: controller.value.aspectRatio,
@@ -62,11 +63,13 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
                 child: Stack(
                   children: [
                     VideoPlayer(controller),
-            
+
                     //gradient
 
-                    GradientVideoBackground(stops: [0.8, 1],),
-            
+                    GradientVideoBackground(
+                      stops: [0.8, 1],
+                    ),
+
                     //text
                     Positioned(
                       bottom: 50,

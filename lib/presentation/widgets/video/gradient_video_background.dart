@@ -13,7 +13,7 @@ class GradientVideoBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Positioned.fill(
+    return  Positioned.fill(
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: colors, stops: stops,
